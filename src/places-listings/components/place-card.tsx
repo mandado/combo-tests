@@ -3,7 +3,6 @@ import {
   CreditCardIcon,
   UserCircleIcon,
 } from '@heroicons/react/20/solid';
-import { Suspense } from 'react';
 import NearPlaces from './near-places';
 import { usePlaceContext } from '../../core/contexts/PlaceContext';
 
@@ -65,9 +64,7 @@ export default function PlaceCard() {
           </div>
         </dl>
         <div className="mt-6 border-t border-zinc-50/5 px-6 py-6">
-          <Suspense fallback={<p>Loading near places</p>}>
-            <NearPlaces />
-          </Suspense>
+          <NearPlaces />
         </div>
       </div>
     </div>
