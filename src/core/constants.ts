@@ -1,6 +1,4 @@
-const sleep = (delay: number) => new Promise((resolve) => setTimeout(resolve, delay))
-
-const places = [
+export const places = [
   {
     "id": 1,
     "name": "Paris, France",
@@ -202,11 +200,3 @@ const places = [
     "longitude": -3.7038
   }
 ];
-
-export const fetchApi = async () => {
-  await sleep(1000)
-  return places
-}
-
-export type Places = typeof places;
-export type Place = Places[number];

@@ -1,5 +1,7 @@
 import { CalendarDaysIcon, CreditCardIcon, UserCircleIcon } from '@heroicons/react/20/solid'
-import { Place } from '../fake-api'
+import { Suspense } from 'react'
+import NearPlaces from './near-places'
+import { Place } from '../core/entities/place'
 
 export default function PlaceCard({ place }: { place: Place }) {
   return (
@@ -12,40 +14,36 @@ export default function PlaceCard({ place }: { place: Place }) {
               {place.description}
             </dd>
           </div>
-          <div className="flex-none self-end px-6 pt-4">
-            <dt className="sr-only">Status</dt>
-            <dd className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-              Paid
-            </dd>
-          </div>
           <div className="mt-6 flex w-full flex-none gap-x-4 border-t border-zinc-50/5 px-6 pt-6">
             <dt className="flex-none">
-              <span className="sr-only">Client</span>
+              <span className="sr-only">Country</span>
               <UserCircleIcon className="h-6 w-5 text-zinc-400" aria-hidden="true" />
             </dt>
-            <dd className="text-sm font-medium leading-6 text-zinc-50">Alex Curren</dd>
+            <dd className="text-sm font-medium leading-6 text-zinc-50">
+              {place.country}
+            </dd>
           </div>
           <div className="mt-4 flex w-full flex-none gap-x-4 px-6">
             <dt className="flex-none">
-              <span className="sr-only">Due date</span>
+              <span className="sr-only">Climate</span>
               <CalendarDaysIcon className="h-6 w-5 text-zinc-400" aria-hidden="true" />
             </dt>
             <dd className="text-sm leading-6 text-zinc-500">
-              <time dateTime="2023-01-31">January 31, 2023</time>
+              <time dateTime="2023-01-31">{place.climate}</time>
             </dd>
           </div>
           <div className="mt-4 flex w-full flex-none gap-x-4 px-6">
             <dt className="flex-none">
-              <span className="sr-only">Status</span>
+              <span className="sr-only">Currency</span>
               <CreditCardIcon className="h-6 w-5 text-zinc-400" aria-hidden="true" />
             </dt>
-            <dd className="text-sm leading-6 text-zinc-500">Paid with MasterCard</dd>
+            <dd className="text-sm leading-6 text-zinc-500"> {place.currency}</dd>
           </div>
         </dl>
         <div className="mt-6 border-t border-zinc-50/5 px-6 py-6">
-          <a href="#" className="text-sm font-semibold leading-6 text-zinc-50">
-            Download receipt <span aria-hidden="true">&rarr;</span>
-          </a>
+          <Suspense fallback={<p>asd</p>}>
+            <NearPlaces place={place} />
+          </Suspense>
         </div>
       </div>
     </div>
