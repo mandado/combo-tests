@@ -1,27 +1,22 @@
-# React + TypeScript + Vite
+# Combo test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Stack
 
-Currently, two official plugins are available:
+- Vite as development environment
+- Components from (Adobe Spectrum)[https://react-spectrum.adobe.com/react-spectrum/getting-started.html] as UI library with accessibility.
+- useAsyncList hook for loading external data with loading state, pagination, etc. if some day needs some caching, maybe it's better change to react-query or implement some api with this hook
+- styling from tailwindcss, for me it's a no-brainer solution for styling, depending complexity of project can use tailwindui for rapid development.
+- for sharing state between components I used context for simple solution. if need some thing a solution with more robustness, I choose zustand since it's scalable and simple to build shared state, keeping growning.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+### Architeture
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- I decided to mix using context + OOP approach. keeping business rules on entities classes.
+- For load data I decided to create a service class for that.
+- to calculate the nearest places from the current place I decided to use the `haversine-distance` algorithm (AKA The great circle distance)
 
-- Configure the top-level `parserOptions` property like this:
+## Patterns 
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Prettier for code format
+- EditorConfig for default spaces, encoding, etc. 
+- Eslint

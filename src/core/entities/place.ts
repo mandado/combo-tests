@@ -1,7 +1,7 @@
-import { PlaceItem } from "../../types/places";
-import haversine from 'haversine-distance'
+import { PlaceItem } from '../../types/places';
+import haversine from 'haversine-distance';
 
-type PlaceProps = PlaceItem & { distance: number }
+type PlaceProps = PlaceItem & { distance: number };
 
 export class Place {
   constructor(private data: PlaceProps) {}
@@ -31,10 +31,10 @@ export class Place {
   }
 
   get coordinates() {
-    return { 
-      latitude: this.data.latitude, 
-      longitude: this.data.longitude 
-    }
+    return {
+      latitude: this.data.latitude,
+      longitude: this.data.longitude,
+    };
   }
 
   get latitude() {
@@ -54,14 +54,15 @@ export class Place {
   }
 
   createWithDistance(referencePlace: Place) {
-    const distance = haversine(this.coordinates, {
-      latitude: referencePlace.latitude,
-      longitude: referencePlace.longitude
-    }) ?? 0;
+    const distance =
+      haversine(this.coordinates, {
+        latitude: referencePlace.latitude,
+        longitude: referencePlace.longitude,
+      }) ?? 0;
 
     return new Place({
       ...this.data,
-      distance
+      distance,
     });
   }
 }
