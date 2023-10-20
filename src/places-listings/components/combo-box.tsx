@@ -40,7 +40,6 @@ export function PlacesComboBox() {
   useEffect(() => {
     if (list.error) {
       setErrorMessage(list.error.message);
-      setSelectedPlace(null);
       setTimeout(() => setErrorMessage(null), 3000);
     }
   }, [list.error]);
