@@ -39,7 +39,7 @@ export default function NearPlaces() {
   }, [place]);
 
   return places.isLoading ? (
-    'Loading'
+    <>Loading</>
   ) : (
     <Flex direction="row" wrap="wrap" width="100%" gap="size-100">
       {places.items.map((item) => (
