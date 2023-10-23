@@ -12,12 +12,13 @@ export class PlacesService {
     return places.find((place) => place.id === id);
   }
 
-  async fetchNearPlaces(currentPlace: Place) {
+  async fetchNearPlaces(currentPlace: Place, limit = 5) {
     const data = await this.getPlaces();
 
     return data
       .map((place) => place.createWithDistance(currentPlace))
       .filter((item) => item.id !== currentPlace.id)
-      .sort((a, b) => a.distance - b.distance);
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, limit);
   }
 }

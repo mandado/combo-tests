@@ -19,7 +19,7 @@ export default function NearPlaces() {
       const nearPlaces = await placesService.fetchNearPlaces(place);
 
       return {
-        items: nearPlaces.slice(0, 5),
+        items: nearPlaces,
       };
     },
   });
