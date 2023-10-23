@@ -1,10 +1,12 @@
 import {
+  BuildingStorefrontIcon,
   CalendarDaysIcon,
   CreditCardIcon,
   UserCircleIcon,
 } from '@heroicons/react/20/solid';
 import NearPlaces from './near-places';
 import { usePlaceContext } from '../../core/contexts/PlaceContext';
+import { CloudIcon, CurrencyDollarIcon } from '@heroicons/react/24/outline';
 
 export default function PlaceCard() {
   const { selectedPlace: place } = usePlaceContext();
@@ -28,7 +30,7 @@ export default function PlaceCard() {
           <div className="mt-6 flex w-full flex-none gap-x-4 border-t border-zinc-50/5 px-6 pt-6">
             <dt className="flex-none">
               <span className="sr-only">Country</span>
-              <UserCircleIcon
+              <BuildingStorefrontIcon
                 className="h-6 w-5 text-zinc-400"
                 aria-hidden="true"
               />
@@ -40,7 +42,7 @@ export default function PlaceCard() {
           <div className="mt-4 flex w-full flex-none gap-x-4 px-6">
             <dt className="flex-none">
               <span className="sr-only">Climate</span>
-              <CalendarDaysIcon
+              <CloudIcon
                 className="h-6 w-5 text-zinc-400"
                 aria-hidden="true"
               />
@@ -52,7 +54,7 @@ export default function PlaceCard() {
           <div className="mt-4 flex w-full flex-none gap-x-4 px-6">
             <dt className="flex-none">
               <span className="sr-only">Currency</span>
-              <CreditCardIcon
+              <CurrencyDollarIcon
                 className="h-6 w-5 text-zinc-400"
                 aria-hidden="true"
               />
