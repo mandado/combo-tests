@@ -45,8 +45,8 @@ export default function PlaceCard() {
                 aria-hidden="true"
               />
             </dt>
-            <dd className="text-sm leading-6 text-zinc-500">
-              <time dateTime="2023-01-31">{place.climate}</time>
+            <dd className="text-sm leading-6 text-zinc-50">
+              {place.climate}
             </dd>
           </div>
           <div className="mt-4 flex w-full flex-none gap-x-4 px-6">
@@ -57,7 +57,7 @@ export default function PlaceCard() {
                 aria-hidden="true"
               />
             </dt>
-            <dd className="text-sm leading-6 text-zinc-500">
+            <dd className="text-sm leading-6 text-zinc-50">
               {' '}
               {place.currency}
             </dd>
